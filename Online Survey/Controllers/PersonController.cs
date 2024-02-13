@@ -46,7 +46,7 @@ namespace Net_Survey.Controllers
         }
         [HttpPost]
         public ActionResult Edit(Person person)
-        {      
+        {
             // deðiþtirilmemesi gerekenleri burada belirtiyoruz.
             db.Entry(person).State = System.Data.Entity.EntityState.Modified;
             db.Entry(person).Property(e => e.CreateBy).IsModified = false;
@@ -57,6 +57,18 @@ namespace Net_Survey.Controllers
             // Güncelleme iþleminde hangi id güncellenecekse iletilmesi gerekli yoksa hata alýnýr.
             db.SaveChanges();
 
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return HttpNotFound();
+            }
+            var person = db.Person.Find(Id);
+            db.Person.Remove(person);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
