@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SurveyModelStoreContainer" CdmEntityContainer="SurveyEntities">
+    <EntitySetMapping Name="Answer">
+      <EntityTypeMapping TypeName="SurveyModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerLine">
+      <EntityTypeMapping TypeName="SurveyModel.AnswerLine">
+        <MappingFragment StoreEntitySet="AnswerLine">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="SurveyModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="SurveyModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question1" ColumnName="Question" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

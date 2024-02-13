@@ -77,3 +77,7 @@ C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\bin\Microsoft.Cod
 C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\obj\Debug\Online Survey.csproj.CopyComplete
 C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\obj\Debug\Online Survey.dll
 C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\obj\Debug\Online Survey.pdb
+C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\bin\EntityFramework.dll
+C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\bin\EntityFramework.SqlServer.dll
+C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\bin\EntityFramework.xml
+C:\Users\fatih\OneDrive\Masaüstü\Online Survey\Online Survey\bin\EntityFramework.SqlServer.xml
