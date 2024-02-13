@@ -43,12 +43,12 @@
     <EntitySetMapping Name="Question">
       <EntityTypeMapping TypeName="SurveyModel.Question">
         <MappingFragment StoreEntitySet="Question">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Question1" ColumnName="Question" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
           <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="QuestionLine" ColumnName="QuestionLine" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
