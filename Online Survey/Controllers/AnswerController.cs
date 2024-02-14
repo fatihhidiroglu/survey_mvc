@@ -12,7 +12,7 @@ namespace Online_Survey.Controllers
     {
         public ActionResult Index()
         {
-            var model = db.Answer.Where(m=>m.UserCode == UserCode).ToList();
+            var model = db.Answer.Where(m => m.UserCode == UserCode).ToList();
             return View(model);
         }
         public ActionResult Create(string Code)
@@ -42,7 +42,7 @@ namespace Online_Survey.Controllers
         {
             double answerYes = 0, answerNo = 0, scoreResult = 0;
             var answer = db.Answer.FirstOrDefault(m => m.PersonCode == code && m.UserCode == UserCode);
-            var answerLine = db.AnswerLine.Where(m => m.AnswerId == answer.Id).ToList();           
+            var answerLine = db.AnswerLine.Where(m => m.AnswerId == answer.Id).ToList();
 
             foreach (var item in answerLine)
             {
@@ -111,6 +111,11 @@ namespace Online_Survey.Controllers
                 db.SaveChanges();
             }
 
+        }
+        public ActionResult Detail(int? Id)
+        {
+            var model = db.AnswerLine.Where(m => m.AnswerId == Id).ToList();
+            return View(model);
         }
     }
 }
