@@ -15,14 +15,21 @@ namespace Online_Survey.Controllers
             return View(model);
         }
 
-        public ActionResult Create(Person person)
+        public ActionResult Create(Person person, string Answer)
         {
             // Method çaðrýrýlýnca hemen ekleme yapmamasý için þart eklendi.
             if (person.NameSurname != null)
             {
                 person.CreateDate = DateTime.Now;
                 person.CreateBy = NameSurname;
-
+                if (Answer == Constants.AnswerType.Yes)
+                {
+                    person.IsAdmin = true;
+                }
+                else
+                {
+                    person.IsAdmin = false;
+                }
                 db.Person.Add(person);
                 db.SaveChanges();
                 return RedirectToAction("Index");

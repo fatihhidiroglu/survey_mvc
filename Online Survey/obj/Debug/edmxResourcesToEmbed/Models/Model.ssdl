@@ -35,6 +35,7 @@
     <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
     <Property Name="ModifyDate" Type="datetime" />
     <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" />
   </EntityType>
   <EntityType Name="Question">
     <Key>

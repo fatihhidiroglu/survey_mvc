@@ -48,6 +48,10 @@
 
                         var answer = $('input[name="Answer_@item.Id"]:checked').val();
                         formdata.set("Answer", answer);
+                        if (code == "") {
+                            $('#warningMessage').modal('show');
+                            return;
+                        }
 
                         $.ajax({
                             url: "/Answer/SendData",
@@ -67,7 +71,7 @@
                         });
                     });
                 </script>
-                
+
 
                 number++;
             }
@@ -75,5 +79,25 @@
                 <button type="submit" class="btn btn-primary float-right px-5"><i class="icon-lock"></i>Kaydet</button>
             </div>
         }
+    </div>
+</div>
+
+<div class="modal fade" id="warningMessage">
+    <div class="modal-dialog">
+        <div class="modal-content border-warning">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title text-white">Uyarı</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lütfen Kişi Seçiniz</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Kapat</button>
+            </div>
+        </div>
     </div>
 </div>

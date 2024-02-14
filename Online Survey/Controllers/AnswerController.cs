@@ -42,7 +42,7 @@ namespace Online_Survey.Controllers
         {
             double answerYes = 0, answerNo = 0, scoreResult = 0;
             var answer = db.Answer.FirstOrDefault(m => m.PersonCode == code && m.UserCode == UserCode);
-            var answerLine = db.AnswerLine.Where(m => m.AnswerId == answer.Id).ToList();
+            var answerLine = db.AnswerLine.Where(m => m.AnswerId == answer.Id).ToList();           
 
             foreach (var item in answerLine)
             {
