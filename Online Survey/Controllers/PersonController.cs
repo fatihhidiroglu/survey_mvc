@@ -10,19 +10,27 @@ namespace Online_Survey.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             // debug daha kolay yapabilmek için deðiþkene atandý
             var model = db.Person.ToList();
             return View(model);
         }
 
-        public ActionResult Create(Person person, string Answer)
+        public ActionResult Create(Person person, string Admin)
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             // Method çaðrýrýlýnca hemen ekleme yapmamasý için þart eklendi.
             if (person.NameSurname != null)
             {
                 person.CreateDate = DateTime.Now;
                 person.CreateBy = NameSurname;
-                if (Answer == Constants.AnswerType.Yes)
+                if (Admin == Constants.AnswerType.Yes)
                 {
                     person.IsAdmin = true;
                 }
@@ -52,7 +60,7 @@ namespace Online_Survey.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Edit(Person person)
+        public ActionResult Edit(Person person, string Admin)
         {
             // deðiþtirilmemesi gerekenleri burada belirtiyoruz.
             db.Entry(person).State = System.Data.Entity.EntityState.Modified;
@@ -61,6 +69,14 @@ namespace Online_Survey.Controllers
 
             person.ModifyBy = NameSurname;
             person.ModifyDate = DateTime.Now;
+            if (Admin == Constants.AnswerType.Yes)
+            {
+                person.IsAdmin = true;
+            }
+            else
+            {
+                person.IsAdmin = false;
+            }
             // Güncelleme iþleminde hangi id güncellenecekse iletilmesi gerekli yoksa hata alýnýr.
             db.SaveChanges();
 

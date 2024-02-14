@@ -20,8 +20,13 @@ namespace Online_Survey.Controllers
                 {
                     Session["Code"] = person.Code;
                     Session["NameSurname"] = person.NameSurname;
-                    // Method | action
-                    return RedirectToAction("Index", "Person");
+                    if (person.IsAdmin == true)
+                    {
+                        Session["Admin"] = "Admin";
+                        // Method | action
+                        return RedirectToAction("Index", "Person");
+                    }
+                    return RedirectToAction("Index", "Answer");
                 }
                 else
                 {

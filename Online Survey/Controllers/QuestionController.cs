@@ -12,12 +12,23 @@ namespace Online_Survey.Controllers
     {
         public ActionResult Index()
         {
-            var model = db.Question.ToList();
-            return View(model);
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            } else
+            {
+                var model = db.Question.ToList();
+                return View(model);
+            }
         }
 
         public ActionResult Create(Question question)
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
+
             if (question.QuestionLine != null)
             {
                 question.CreateDate = DateTime.Now;
