@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Net_Survey.Controllers
+namespace Online_Survey.Controllers
 {
     public class PersonController : BaseController
     {

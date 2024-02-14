@@ -16,18 +16,57 @@
 
             foreach (var item in Model)
             {
+                <input type="hidden" name="@item.QuestionLine" id="Question_@item.Id" value="@item.QuestionLine" />
                 <div class="card mb-3">
-                    <div class="card-header">@number)  @item.QuestionLine</div>
-                    <div class="card-body">
+                    <div class="card-header p-3">@number)  @item.QuestionLine</div>
+                    <div class="card-body p-3">
                         <div class="demo-radio-button">
-                            <input name="Answer_@item.Id" type="radio" id="Yes_@item.Id" class="radio-col-primary" checked="">
-                            <label for="Yes_@item.Id">Evet</label>
+                            <input type="radio" id="Yes_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="Evet">
+                            <label class="mb-0" for="Yes_@item.Id">Evet</label>
 
-                            <input name="Answer_@item.Id" type="radio" id="No_@item.Id" class="radio-col-danger" checked="">
-                            <label for="No_@item.Id">Hayır</label>
+                            <input type="radio" id="No_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="Hayır">
+                            <label class="mb-0" for="No_@item.Id">Hayır</label>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    $('.radio_@item.Id').click(function () {
+                        var formdata = new FormData();
+
+                        var code = $('#Code').val();
+                        formdata.set("Code", code);
+
+                        var namesurname = $('#Code :selected').text();
+                        formdata.set("NameSurname", namesurname);
+
+
+                        var question = $('#Question_@item.Id').val();
+                        formdata.set("Question", question);
+
+                        var answer = $('input[name="Answer_@item.Id"]:checked').val();
+                        formdata.set("Answer", answer);
+
+                        $.ajax({
+                            url: "/Answer/SendData",
+                            data: formdata,
+                            type: "POST",
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success: function (data) {
+                                if (data == "True") {
+
+                                }
+                            },
+                            error: function (data) {
+                                alert("Ekleme Sırasında Hata Meydana Geldi!");
+                            }
+                        });
+                    });
+                </script>
+                <script src="~/Content/assets/js/jquery.min.js"></script>
+
                 number++;
             }
             <div class="form-group">
