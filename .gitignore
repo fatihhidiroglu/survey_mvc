@@ -1,0 +1,41 @@
+# Visual Studio kodlarının oluşturduğu dosyalar
+.vs/
+bin/
+obj/
+
+# Yerel yapılandırma dosyaları
+*.suo
+*.user
+*.sln.docstates
+
+# Paketleme dosyaları
+*.nupkg
+*.pfx
+*.snk
+
+# Resim dosyaları
+Thumbs.db
+
+# VS Code için yapılandırma dosyaları
+.vscode/
+
+# macOS için yapılandırma dosyaları
+.DS_Store
+
+# JetBrains Rider için yapılandırma dosyaları
+.idea/
+*.sln.iml
+
+# Yerel keşifler
+*.bak
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.log
+*.ncb
+*.sdf
+*.opensdf
+*.suo
+*.user
+*.sln.docstates
