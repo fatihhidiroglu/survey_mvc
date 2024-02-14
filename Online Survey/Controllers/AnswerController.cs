@@ -14,20 +14,57 @@ namespace Online_Survey.Controllers
         {
             return View();
         }
-        public ActionResult Create()
+        public ActionResult Create(string Code)
         {
-            List<SelectListItem> personList = (from person in db.Person
-                                               where person.Code != Code
-                                               select new SelectListItem
-                                               {
-                                                   Text = person.NameSurname,
-                                                   Value = person.Code.ToString()
-                                               }).ToList();
+            if (Code == null)
+            {
+                List<SelectListItem> personList = (from person in db.Person
+                                                   where person.Code != Code
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = person.NameSurname,
+                                                       Value = person.Code.ToString()
+                                                   }).ToList();
 
-            ViewBag.Person = new SelectList(personList.OrderBy(m => m.Text), "Value", "Text");
+                ViewBag.Person = new SelectList(personList.OrderBy(m => m.Text), "Value", "Text");
 
-            var questionModel = db.Question.ToList();
-            return View(questionModel);
+                var questionModel = db.Question.ToList();
+                return View(questionModel);
+            }
+            else
+            {
+                CalculateScore(Code);
+                return RedirectToAction("Index");
+            }
+        }
+        public void CalculateScore(string code)
+        {
+            double answerYes = 0, answerNo = 0, scoreResult = 0;
+            var answer = db.Answer.FirstOrDefault(m => m.PersonCode == code && m.UserCode == Code);
+            var answerLine = db.AnswerLine.Where(m => m.AnswerId == answer.Id).ToList();
+
+            foreach (var item in answerLine)
+            {
+                if (item.Answer == Constants.AnswerType.Yes)
+                {
+                    answerYes++;
+                }
+                else
+                {
+                    answerNo++;
+                }
+            }
+            scoreResult = (answerYes / (answerYes + answerNo)) * 100;
+            if (scoreResult > 69)
+            {
+                answer.IsComplete = true;
+            }
+            else
+            {
+                answer.IsComplete = false;
+            }
+            answer.Score = scoreResult.ToString();
+            db.SaveChanges();
         }
         public String SendData(AnswerModel answerModel)
         {
