@@ -4,6 +4,8 @@
     int number = 1;
 }
 
+<script src="~/Content/assets/js/jquery.min.js"></script>
+
 <div class="card">
     <div class="card-body">
         <div class="card-title text-center">Anket Cevaplama Sayfası</div>
@@ -30,7 +32,7 @@
                     </div>
                 </div>
 
-                <script>
+                <script type="text/javascript">
                     $('.radio_@item.Id').click(function () {
                         var formdata = new FormData();
 
@@ -65,7 +67,7 @@
                         });
                     });
                 </script>
-                <script src="~/Content/assets/js/jquery.min.js"></script>
+                
 
                 number++;
             }
