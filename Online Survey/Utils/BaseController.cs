@@ -11,6 +11,8 @@ namespace Online_Survey.Utils
     {
         // Diğer controller'ın erişebilmesi için public olarak oluşturuldu.
         public SurveyEntities db = new SurveyEntities();
+        public string Code { get; set; }
+        public string NameSurname { get; set; }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (Session["Code"] == null)
@@ -19,7 +21,8 @@ namespace Online_Survey.Utils
             }
             else
             {
-
+                Code = Session["Code"].ToString();
+                NameSurname = Session["NameSurname"].ToString();
             }
             base.OnActionExecuting(filterContext);
         }

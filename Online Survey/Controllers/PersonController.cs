@@ -21,7 +21,7 @@ namespace Net_Survey.Controllers
             if (person.NameSurname != null)
             {
                 person.CreateDate = DateTime.Now;
-                person.CreateBy = "System";
+                person.CreateBy = NameSurname;
 
                 db.Person.Add(person);
                 db.SaveChanges();
@@ -52,7 +52,7 @@ namespace Net_Survey.Controllers
             db.Entry(person).Property(e => e.CreateBy).IsModified = false;
             db.Entry(person).Property(e => e.CreateDate).IsModified = false;
 
-            person.ModifyBy = "System Edit";
+            person.ModifyBy = NameSurname;
             person.ModifyDate = DateTime.Now;
             // Güncelleme iþleminde hangi id güncellenecekse iletilmesi gerekli yoksa hata alýnýr.
             db.SaveChanges();

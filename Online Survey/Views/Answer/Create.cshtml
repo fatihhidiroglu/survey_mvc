@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Online_Survey.Models.Question>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number = 1;
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title text-center">Anket Cevaplama Sayfası</div>
+        <hr>
+        @using (Html.BeginForm("Create", "Answer"))
+        {
+            <div class="form-group">
+                @Html.DropDownList("Code", (SelectList)ViewBag.Person, "Lütfen Kişi Seçiniz", new { @class = "form-control" })
+            </div>
+
+            foreach (var item in Model)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">@number)  @item.QuestionLine</div>
+                    <div class="card-body">
+                        <div class="demo-radio-button">
+                            <input name="Answer_@item.Id" type="radio" id="Yes_@item.Id" class="radio-col-primary" checked="">
+                            <label for="Yes_@item.Id">Evet</label>
+
+                            <input name="Answer_@item.Id" type="radio" id="No_@item.Id" class="radio-col-danger" checked="">
+                            <label for="No_@item.Id">Hayır</label>
+                        </div>
+                    </div>
+                </div>
+                number++;
+            }
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary float-right px-5"><i class="icon-lock"></i>Kaydet</button>
+            </div>
+        }
+    </div>
+</div>
