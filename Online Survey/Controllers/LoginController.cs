@@ -30,5 +30,12 @@ namespace Online_Survey.Controllers
                 }
             }
         }
+
+        public ActionResult LogOut()
+        {
+            // Session temizliyor
+            Session.Abandon();
+            return RedirectToAction("SignIn", "Login");
+        }
     }
 }
