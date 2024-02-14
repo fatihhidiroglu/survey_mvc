@@ -1,13 +1,13 @@
 using Online_Survey.Models;
+using Online_Survey.Utils;
 using System;
 using System.Linq;
 using System.Web.Mvc;
 
 namespace Net_Survey.Controllers
 {
-    public class PersonController : Controller
+    public class PersonController : BaseController
     {
-        SurveyEntities db = new SurveyEntities();
         public ActionResult Index()
         {
             // debug daha kolay yapabilmek için deðiþkene atandý

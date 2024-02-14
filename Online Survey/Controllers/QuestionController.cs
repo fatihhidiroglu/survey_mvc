@@ -1,4 +1,5 @@
 ﻿using Online_Survey.Models;
+using Online_Survey.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,8 @@ using System.Web.Mvc;
 
 namespace Online_Survey.Controllers
 {
-    public class QuestionController : Controller
+    public class QuestionController : BaseController
     {
-        SurveyEntities db = new SurveyEntities();
         public ActionResult Index()
         {
             var model = db.Question.ToList();
