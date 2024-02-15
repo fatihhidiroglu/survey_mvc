@@ -18,6 +18,5 @@ namespace Online_Survey.Models
         public Nullable<int> AnswerId { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
-        public string Image { get; set; }
     }
 }

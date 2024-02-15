@@ -15,17 +15,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AnswerLine">
-      <EntityTypeMapping TypeName="SurveyModel.AnswerLine">
-        <MappingFragment StoreEntitySet="AnswerLine">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
-          <ScalarProperty Name="Question" ColumnName="Question" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Question">
       <EntityTypeMapping TypeName="SurveyModel.Question">
         <MappingFragment StoreEntitySet="Question">
@@ -49,6 +38,16 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerLine">
+      <EntityTypeMapping TypeName="SurveyModel.AnswerLine">
+        <MappingFragment StoreEntitySet="AnswerLine">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

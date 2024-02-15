@@ -13,21 +13,11 @@
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
     <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="AnswerLine">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AnswerId" Type="Int32" />
-    <Property Name="Question" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Answer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityContainer Name="SurveyEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Answer" EntityType="Self.Answer" />
-    <EntitySet Name="AnswerLine" EntityType="Self.AnswerLine" />
     <EntitySet Name="Question" EntityType="SurveyModel.Question" />
     <EntitySet Name="Person" EntityType="SurveyModel.Person" />
+    <EntitySet Name="AnswerLine" EntityType="SurveyModel.AnswerLine" />
   </EntityContainer>
   <EntityType Name="Question">
     <Key>
@@ -53,5 +43,14 @@
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AnswerLine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnswerId" Type="Int32" />
+    <Property Name="Question" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -21,7 +21,6 @@
     <Property Name="AnswerId" Type="int" />
     <Property Name="Question" Type="nvarchar" MaxLength="250" />
     <Property Name="Answer" Type="nvarchar" MaxLength="10" />
-    <Property Name="Image" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Person">
     <Key>

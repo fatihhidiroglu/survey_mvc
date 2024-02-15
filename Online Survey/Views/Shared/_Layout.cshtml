@@ -9,10 +9,6 @@
     <title>Survey | FH</title>
     <!--favicon-->
     <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
-    <!-- notifications css -->
-    <link rel="stylesheet" href="~/Content/assets/plugins/notifications/css/lobibox.min.css" />
-    <!-- Vector CSS -->
-    <link href="~/Content/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- simplebar CSS-->
     <link href="~/Content/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
     <!-- Bootstrap core CSS-->
@@ -26,6 +22,35 @@
     <!-- Custom Style-->
     <link href="~/Content/assets/css/app-style.css" rel="stylesheet" />
 
+    <style type="text/css">
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 4px;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #a5a5a5;
+            border-radius: 2px;
+        }
+
+            ::-webkit-scrollbar-thumb:vertical:hover,
+            ::-webkit-scrollbar-thumb:vertical:active,
+            ::-webkit-scrollbar-thumb:horizontal:hover,
+            ::-webkit-scrollbar-thumb:horizontal:active {
+                background: #888888;
+            }
+
+            ::-webkit-scrollbar-thumb:horizontal {
+                background: #a5a5a5;
+            }
+
+                ::-webkit-scrollbar-thumb:horizontal:hover,
+                ::-webkit-scrollbar-thumb:horizontal:active {
+                    background: #888888;
+                }
+    </style>
 </head>
 
 <body>
@@ -34,7 +59,10 @@
     <div id="wrapper" class="toggled">
 
         <!--Start topbar header-->
-        @Html.Partial("_Topbar")
+        @if (Request.Url.AbsolutePath != "/Login/SignIn")
+        {
+            @Html.Partial("_Topbar")
+        }
         <!--End topbar header-->
         <div class="content-wrapper">
             <div class="container-fluid">
@@ -64,14 +92,6 @@
     <script src="~/Content/assets/js/sidebar-menu.js"></script>
     <!-- Custom scripts -->
     <script src="~/Content/assets/js/app-script.js"></script>
-
-    <!-- Vector map JavaScript -->
-    <script src="~/Content/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="~/Content/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- Sparkline JS -->
-    <script src="~/Content/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
-    <!-- Chart js -->
-    <script src="~/Content/assets/plugins/Chart.js/Chart.min.js"></script>
     <!-- Index js -->
     <script src="~/Content/assets/js/index.js"></script>
 </body>
